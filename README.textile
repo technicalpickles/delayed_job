@@ -28,6 +28,14 @@ The library evolves around a delayed_jobs table which looks as follows:
     table.timestamps
   end
 
+A Rails generator is provide for your convenience:
+
+<pre>
+<code>
+  script/generate delayed_job
+</code>
+</pre>
+
 On failure, the job is scheduled again in 5 seconds + N ** 4, where N is the number of retries.
 
 The default MAX_ATTEMPTS is 25. After this, the job either deleted (default), or left in the database with "failed_at" set.
